@@ -4,10 +4,10 @@ import threading
 
 
 def sugar():
-    os.system("sugar.py")
+    os.system("sensor\\sugar.py")
 
 def heat():
-    os.system("test.py")
+    os.system("sensor\\test.py")
 
 
 t1 = threading.Thread(target=sugar)
