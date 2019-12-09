@@ -21,7 +21,7 @@ client.loop_start()
 try:
     while True:
             tmp = random.randrange(minS,maxS)
-            print(time.ctime()+': sugar value:{:g}\n'.format(tmp))
+            print(time.ctime()+': sugar value:{:g}'.format(tmp))
             sensor_sugar_data['value'] = tmp;
             client.publish('v1/devices/me/telemetry',json.dumps(sensor_sugar_data))
             time.sleep(5)

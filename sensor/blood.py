@@ -24,7 +24,11 @@ try:
     while True:
         valueLow = random.randrange(minLow, maxLow)
         valueHigh = random.randrange(minHigh, maxHigh)
-        print(time.ctime() + ': blood pressure value: {:g}'.format(valueHigh)+'|{:g}\n'.format(valueLow))
+        print(time.ctime() + ': blood pressure value: {:g}'.format(valueHigh)+'|{:g}'.format(valueLow))
+        if valueLow > valueHigh:
+            temp = valueLow
+            valueLow = valueHigh
+            valueHigh = temp
         sensor_blood_data['valueLow'] = valueLow;
         sensor_blood_data['valueHigh'] = valueHigh;
         client.publish('v1/devices/me/telemetry', json.dumps(sensor_blood_data))

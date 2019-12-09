@@ -6,12 +6,14 @@ import json
 import random
 
 THINGS_BOARD_HOST = 'demo.thingsboard.io'
-ACCESS_TOKEN = 'x7uIppJmEM9BgCvgNgFu'
+ACCESS_TOKEN = 'ljYfx6gZ90rI3JjgKeEM'
 
-sensor_sugar_data = {'value': 0}
+sensor_heart_data = {'value': 0,'sex' : 'F','age' : 0}
 
 minS = 50;
 maxS = 200;
+age = 21
+sex = 'M'
 
 client = mqtt.Client()
 
@@ -21,9 +23,11 @@ client.loop_start()
 try:
     while True:
             tmp = random.randrange(minS,maxS)
-            print(time.ctime()+': sugar value:{:g}'.format(tmp))
-            sensor_sugar_data['value'] = tmp;
-            client.publish('v1/devices/me/telemetry',json.dumps(sensor_sugar_data))
+            print(time.ctime()+': Heartbeat value:{:g}'.format(tmp))
+            sensor_heart_data['value'] = tmp;
+            sensor_heart_data['age'] = age
+            sensor_heart_data['sex'] = sex
+            client.publish('v1/devices/me/telemetry',json.dumps(sensor_heart_data))
             time.sleep(5)
         
 except KeyboardInterrupt:
