@@ -27,7 +27,7 @@ try:
             sensor_heart_data['value'] = tmp;
             sensor_heart_data['age'] = age
             sensor_heart_data['sex'] = sex
-            sensor_heart_data['time'] = (dt.datetime.now()).time().hour()
+            sensor_heart_data['time'] = (dt.datetime.now()).time().hour
             client.publish('v1/devices/me/telemetry',json.dumps(sensor_heart_data))
             time.sleep(5)
         

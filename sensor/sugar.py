@@ -16,18 +16,16 @@ maxS = 200;
 client = mqtt.Client()
 
 client.username_pw_set(ACCESS_TOKEN)
-client.connect(THINGS_BOARD_HOST,1883)
+client.connect(THINGS_BOARD_HOST, 1883)
 client.loop_start()
 try:
     while True:
-            tmp = random.randrange(minS,maxS)
-            print(time.ctime()+': sugar value:{:g}'.format(tmp))
-            sensor_sugar_data['value'] = tmp;
-            client.publish('v1/devices/me/telemetry',json.dumps(sensor_sugar_data))
-            time.sleep(5)
-        
+        tmp = random.randrange(minS, maxS)
+        print(time.ctime() + ': sugar value:{:g}'.format(tmp))
+        sensor_sugar_data['value'] = tmp;
+        client.publish('v1/devices/me/telemetry', json.dumps(sensor_sugar_data))
+        time.sleep(5)
 except KeyboardInterrupt:
     pass
 client.loop_stop()
 client.disconnect()
-
