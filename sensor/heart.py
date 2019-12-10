@@ -4,12 +4,12 @@ import sys
 import paho.mqtt.client as mqtt
 import json
 import random
+import datetime as dt
 
 THINGS_BOARD_HOST = 'demo.thingsboard.io'
 ACCESS_TOKEN = 'ljYfx6gZ90rI3JjgKeEM'
 
-sensor_heart_data = {'value': 0,'sex' : 'F','age' : 0}
-
+sensor_heart_data = {'value': 0,'sex' : 'F','age' : 0, 'hour' : 0}
 minS = 50;
 maxS = 200;
 age = 21
@@ -27,6 +27,7 @@ try:
             sensor_heart_data['value'] = tmp;
             sensor_heart_data['age'] = age
             sensor_heart_data['sex'] = sex
+            sensor_heart_data['time'] = (dt.datetime.now()).time().hour()
             client.publish('v1/devices/me/telemetry',json.dumps(sensor_heart_data))
             time.sleep(5)
         
