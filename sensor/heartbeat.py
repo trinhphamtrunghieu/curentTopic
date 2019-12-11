@@ -8,7 +8,7 @@ import random
 THINGS_BOARD_HOST = 'demo.thingsboard.io'
 ACCESS_TOKEN = 'ljYfx6gZ90rI3JjgKeEM'
 
-sensor_cholesterol_data = {'value': 0}
+sensor_heartbeat_data = {'value': 0}
 
 maxc = 105
 minc = 55
@@ -24,7 +24,7 @@ try:
         print(time.ctime() + ': Heartbeat value: {:g}'.format(value))
         sensor_heartbeat_data['value'] = value;
         client.publish('v1/devices/me/telemetry', json.dumps(sensor_heartbeat_data))
-        time.sleep(5)
+        time.sleep(60)
 
 except KeyboardInterrupt:
     pass
