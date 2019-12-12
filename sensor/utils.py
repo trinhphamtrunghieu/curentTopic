@@ -1,13 +1,9 @@
-token = ""
 temperature = 0
 bloodLow = 0
 bloodHigh = 0
 cholesterol = 0
 heart = 0
 sugar = 0
-sex = "M"
-t = 14
-age = 22
 tempID = "ab419e90-18d0-11ea-bd5a-9f3eedcb469c"
 sugarID = "4b426100-18da-11ea-a07b-510cd1df43ec"
 bloodID = "44853620-198f-11ea-bd5a-9f3eedcb469c"
