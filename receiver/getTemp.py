@@ -15,17 +15,18 @@ def listen():
             }
             url = "http://demo.thingsboard.io/api/plugins/telemetry/DEVICE/" + DEVICE_ID + "/values/timeseries?keys=temperature"
             response = requests.get(url, headers=headers);
-            #print(response)
             response = response.json()
             if (response['temperature'][0]['ts'] != old):
-                print("Temperature " + response['temperature'][0]['value'])
+                ut.temperature = (int)(response['temperature'][0]['value'])
+            #    print("Temperature " + response['temperature'][0]['value'])
                 old = response['temperature'][0]['ts']
             else:
                 old = response['temperature'][0]['ts']
             time.sleep(2)
     except KeyboardInterrupt:
         pass
-
+    except Exception as e:
+        print(e.__traceback__.tb_lineno)
 
 if __name__ == "__main__":
     listen()

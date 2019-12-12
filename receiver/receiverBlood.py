@@ -18,6 +18,8 @@ def listen():
             # print(response)
             response = response.json()
             if response['valueHigh'][0]['ts'] != old:
+                ut.bloodHigh = (int)(response['valueHigh'][0]['value'])
+                ut.bloodLow = (int)(response['valueLow'][0]['value'])
                 print("Current Blood " + response['valueHigh'][0]['value'] + "|" + response['valueLow'][0]['value'])
                 old = response['valueHigh'][0]['ts']
             else:

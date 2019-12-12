@@ -1,1 +1,10 @@
 token = ""
+temperature = 0
+bloodLow = 0
+bloodHigh = 0
+cholesterol = 0
+heart = 0
+sugar = 0
+sex = "M"
+t = 14
+age = 22

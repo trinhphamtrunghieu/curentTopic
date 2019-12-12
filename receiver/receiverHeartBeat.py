@@ -19,7 +19,8 @@ def listen():
             #print(response)
             response = response.json()
             if response['value'][0]['ts'] != old:
-                print("Heart beat per 5 seconds " + response['value'][0]['value'])
+                ut.heart = int(response['value'][0]['value'])
+#                print("Heart beat per 5 seconds " + response['value'][0]['value'])
                 old = response['value'][0]['ts']
             else:
                 old = response['value'][0]['ts']

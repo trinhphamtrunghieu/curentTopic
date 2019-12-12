@@ -21,9 +21,14 @@ class App(QDialog):
         self.loginButton.clicked.connect(self.buttonClicked)
 
     def buttonClicked(self):
-        if (self.username.text() == "test") and (self.password.text() == "text"):
-            print("Login")
-            pI.start()
+        try:
+            if (self.username.text() == "test") and (self.password.text() == "text"):
+                print("Login")
+                self.patientInfo = pI.patientInfo()
+                self.patientInfo.show()
+        except Exception as e:
+            print(e)
+
 
 
 if __name__ == "__main__":

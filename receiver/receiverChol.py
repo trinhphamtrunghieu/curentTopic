@@ -16,10 +16,10 @@ def listen():
             url = "http://demo.thingsboard.io/api/plugins/telemetry/DEVICE/" + DEVICE_ID + "/values/timeseries?keys" \
                                                                                            "=value"
             response = requests.get(url, headers=headers);
-            #print(response)
             response = response.json()
             if response['value'][0]['ts'] != old:
-                print("Cholesterol level " + response['value'][0]['value'])
+                ut.cholesterol = int(response['value'][0]['value'])
+#                print("Cholesterol level " + response['value'][0]['value'])
                 old = response['value'][0]['ts']
             else:
                 old = response['value'][0]['ts']
